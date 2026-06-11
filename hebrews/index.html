@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>He-Brews Coffee — Craft Coffee & Community in Lubbock, TX</title>
+<meta name="description" content="He-Brews Coffee — Christian-owned, Hispanic-owned, student-run craft coffee shop in Lubbock, TX. Open daily 8am–6pm at 2700 Marshall St. Order online, dog-friendly porches, venue rental.">
+<meta property="og:title" content="He-Brews Coffee — Lubbock, TX">
+<meta property="og:description" content="Craft coffee, faith, and community. Open daily 8am–6pm · 2700 Marshall St, Lubbock.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --brown:#362201;        /* their brand brown */
+    --brown-2:#2c2218;
+    --brown-3:#4a341f;
+    --cream:#f5f2ea;
+    --cream-2:#efe9dd;
+    --sage:#b8cba0;
+    --sage-deep:#8aa46f;
+    --green:#4a6132;        /* awning green */
+    --green-deep:#3a4f27;
+    --gold:#e9b44c;
+    --ink:#2b2317;
+    --text:#5d5240;
+    --line:#e2dccb;
+    --serif:Georgia,'Times New Roman',serif;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:90px}
+  body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--sage);color:var(--brown)}
+  .skip-link{position:absolute;left:-9999px;top:0;z-index:300;background:var(--gold);color:var(--brown);padding:10px 18px;font-weight:700;text-decoration:none;border-radius:0 0 10px 0}
+  .skip-link:focus{left:0}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+
+  /* awning stripe motif */
+  .awning{height:14px;background:repeating-linear-gradient(90deg,var(--green) 0 42px,var(--cream) 42px 84px)}
+  .awning.brown{background:repeating-linear-gradient(90deg,var(--brown) 0 42px,#7d6a52 42px 84px)}
+
+  /* ---------- NAV ---------- */
+  nav{position:fixed;inset:0 0 auto;z-index:100;background:rgba(54,34,1,.96);backdrop-filter:blur(10px);border-bottom:3px solid var(--green)}
+  .nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between}
+  .logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+  .logo-mark{width:40px;height:40px;border-radius:50%;background:var(--cream);display:grid;place-items:center;font-family:var(--serif);font-weight:700;color:var(--green);font-size:15px;border:2px solid var(--sage)}
+  .logo-name{color:var(--cream);font-family:var(--serif);font-size:21px;font-weight:700;letter-spacing:.5px}
+  .logo-name small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:3.5px;color:var(--sage);font-weight:600;line-height:1;margin-top:1px}
+  .nav-links{display:flex;align-items:center;gap:2px;list-style:none}
+  .nav-links a{color:#e8dfcf;text-decoration:none;font-size:14.5px;font-weight:600;padding:9px 14px;border-radius:8px;transition:.2s}
+  .nav-links a:hover{color:#fff;background:rgba(255,255,255,.1)}
+  .nav-links .order{background:var(--sage);color:var(--brown);margin-left:8px;font-weight:700}
+  .nav-links .order:hover{background:#cadcb4;color:var(--brown)}
+  .menu-btn{display:none;background:none;border:1px solid rgba(255,255,255,.3);color:var(--cream);font-size:20px;padding:4px 12px;border-radius:8px;cursor:pointer}
+  @media(max-width:860px){
+    .menu-btn{display:block}
+    .nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:var(--brown);flex-direction:column;align-items:stretch;padding:14px;border-bottom:3px solid var(--green)}
+    .nav-links.open{display:flex}
+    .nav-links a{padding:13px 16px}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{background:linear-gradient(rgba(42,52,28,.82),rgba(42,52,28,.86)),repeating-linear-gradient(90deg,var(--green-deep) 0 60px,var(--green) 60px 120px);color:var(--cream);padding:170px 0 100px;text-align:center;position:relative}
+  .hero .verse{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--sage);margin-bottom:18px;letter-spacing:.5px}
+  .hero h1{font-family:var(--serif);font-size:clamp(38px,6vw,64px);font-weight:700;line-height:1.1;letter-spacing:-1px;margin-bottom:18px}
+  .hero h1 span{color:var(--gold)}
+  .hero p{font-size:18px;color:#dde5cf;max-width:560px;margin:0 auto 34px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 30px;border-radius:999px;font-size:16px;font-weight:700;text-decoration:none;transition:.2s;border:2px solid transparent}
+  .btn-gold{background:var(--gold);color:var(--brown)}
+  .btn-gold:hover{background:#f2c468;transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.25)}
+  .btn-cream{border-color:var(--cream);color:var(--cream)}
+  .btn-cream:hover{background:var(--cream);color:var(--green-deep);transform:translateY(-2px)}
+  .btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .hero .citation{margin-top:26px;font-size:13px;letter-spacing:2px;color:var(--sage);text-transform:uppercase}
+
+  /* ---------- INFO BAR ---------- */
+  .info-bar{background:var(--brown);color:var(--cream);padding:22px 0}
+  .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;text-align:center}
+  @media(max-width:720px){.info-grid{grid-template-columns:1fr}}
+  .info-grid b{display:block;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--sage);margin-bottom:3px}
+  .info-grid span{font-size:15.5px}
+  .info-grid a{color:var(--cream);text-decoration:underline;text-decoration-color:var(--sage);text-underline-offset:3px}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:92px 0}
+  .kicker{font-size:12.5px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sage-deep);margin-bottom:10px}
+  h2{font-family:var(--serif);font-size:clamp(28px,4vw,40px);font-weight:700;letter-spacing:-.5px;line-height:1.15;margin-bottom:14px}
+  .sub{color:var(--text);font-size:16.5px;max-width:600px;margin-bottom:44px}
+  .center{text-align:center}
+  .center .sub{margin-inline:auto}
+
+  /* seasonal banner */
+  .seasonal{background:linear-gradient(135deg,#eaf1fb,#fdf8ec);border:1px solid var(--line);border-radius:18px;padding:26px 32px;display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:-46px;position:relative;z-index:2;box-shadow:0 18px 44px rgba(54,34,1,.10)}
+  .seasonal .ic{font-size:38px}
+  .seasonal h3{font-family:var(--serif);font-size:20px;margin-bottom:3px}
+  .seasonal p{color:var(--text);font-size:14.5px}
+  .seasonal a{margin-left:auto;white-space:nowrap}
+  @media(max-width:720px){.seasonal a{margin-left:0}}
+
+  /* ---------- MENU ---------- */
+  .menu-section{background:var(--cream-2)}
+  .menu-tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:44px}
+  .menu-tab{font-family:var(--sans);font-size:15px;font-weight:700;padding:11px 24px;border-radius:999px;border:2px solid var(--green);background:transparent;color:var(--green-deep);cursor:pointer;transition:.2s}
+  .menu-tab:hover{background:rgba(74,97,50,.1)}
+  .menu-tab[aria-selected="true"]{background:var(--green);color:var(--cream)}
+  .menu-panel{display:none;max-width:780px;margin:0 auto}
+  .menu-panel.active{display:block}
+  .menu-cols{display:grid;grid-template-columns:1fr 1fr;gap:8px 48px}
+  @media(max-width:720px){.menu-cols{grid-template-columns:1fr}}
+  .mi{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:11px 0;border-bottom:1px dashed #cfc7b2}
+  .mi .n{font-weight:700;font-size:15.5px}
+  .mi .n small{display:block;font-weight:400;color:var(--text);font-size:13px;margin-top:1px}
+  .mi .p{font-family:var(--serif);font-weight:700;color:var(--green-deep);white-space:nowrap}
+  .menu-note{text-align:center;color:var(--text);font-size:13.5px;margin-top:30px}
+  .menu-cta{text-align:center;margin-top:36px}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:54px;align-items:center}
+  @media(max-width:860px){.about-grid{grid-template-columns:1fr}}
+  .about p{color:var(--text);font-size:16.5px;margin-bottom:16px}
+  .about p strong{color:var(--ink)}
+  .mission{background:var(--green);color:var(--cream);border-radius:18px;padding:40px 36px;position:relative;overflow:hidden}
+  .mission::before{content:'❝';position:absolute;top:-14px;right:14px;font-size:120px;opacity:.15;font-family:var(--serif)}
+  .mission .m-title{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--sage);margin-bottom:12px;font-weight:700}
+  .mission blockquote{font-family:var(--serif);font-style:italic;font-size:28px;line-height:1.3;margin-bottom:18px}
+  .mission p{color:#dde5cf;font-size:14.5px}
+  .radio{margin-top:22px;background:var(--cream);border:1px solid var(--line);border-radius:16px;padding:22px 26px;display:flex;gap:18px;align-items:flex-start}
+  .radio .ic{font-size:28px}
+  .radio h3{font-family:var(--serif);font-size:18px;margin-bottom:4px}
+  .radio p{font-size:14px;color:var(--text)}
+  .radio b{color:var(--green-deep)}
+
+  /* ---------- OFFERINGS ---------- */
+  .offer-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  @media(max-width:960px){.offer-cards{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.offer-cards{grid-template-columns:1fr}}
+  .ocard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px 26px;text-decoration:none;color:var(--ink);transition:.25s;display:flex;flex-direction:column}
+  .ocard:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(54,34,1,.12);border-color:var(--sage)}
+  .ocard .ic{width:52px;height:52px;border-radius:14px;background:var(--cream-2);display:grid;place-items:center;font-size:24px;margin-bottom:18px}
+  .ocard h3{font-family:var(--serif);font-size:19px;margin-bottom:8px}
+  .ocard p{color:var(--text);font-size:14.3px;flex:1}
+  .ocard .go{margin-top:16px;font-weight:700;color:var(--green-deep);font-size:14px}
+  .ocard:hover .go{color:var(--gold)}
+
+  /* ---------- DOG ---------- */
+  .dog{background:var(--green);color:var(--cream)}
+  .dog .kicker{color:var(--sage)}
+  .dog-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  @media(max-width:820px){.dog-grid{grid-template-columns:1fr}}
+  .dog p{color:#dde5cf;font-size:16.5px;margin-bottom:14px}
+  .dog p b{color:#fff}
+  .pup{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:34px;text-align:center}
+  .pup .big{font-size:56px;line-height:1;margin-bottom:14px}
+  .pup h3{font-family:var(--serif);font-size:22px;margin-bottom:8px}
+  .pup p{font-size:14.5px;color:#dde5cf}
+
+  /* ---------- VISIT ---------- */
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:820px){.visit-grid{grid-template-columns:1fr}}
+  .vcard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:34px}
+  .vcard h3{font-family:var(--serif);font-size:21px;margin-bottom:16px}
+  .vrow{display:flex;gap:14px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:15px}
+  .vrow:last-child{border-bottom:none}
+  .vrow .ic{flex-shrink:0}
+  .vrow a{color:var(--green-deep);font-weight:600}
+  .hours-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--line);font-size:15px}
+  .hours-row:last-child{border-bottom:none}
+  .hours-row b{color:var(--green-deep)}
+  .open-now{display:inline-block;background:#e8f3df;color:var(--green-deep);font-size:12.5px;font-weight:700;padding:4px 14px;border-radius:999px;margin-left:10px;letter-spacing:.5px}
+
+  /* ---------- FINAL ---------- */
+  .final{background:linear-gradient(rgba(54,34,1,.88),rgba(54,34,1,.92)),repeating-linear-gradient(90deg,var(--brown-2) 0 60px,var(--brown-3) 60px 120px);color:var(--cream);text-align:center}
+  .final h2{color:#fff}
+  .final p{color:#d9cdb8;max-width:480px;margin:0 auto 32px;font-size:17px}
+
+  footer{background:var(--brown);color:#c9bda6;padding:34px 0;font-size:14px}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  footer a{color:var(--sage);text-decoration:none;margin-left:18px;font-weight:600}
+  footer a:hover{color:#fff}
+  .foot .verse-sm{font-family:var(--serif);font-style:italic;font-size:13px}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="logo" href="#top" aria-label="He-Brews Coffee home">
+      <span class="logo-mark">HB</span>
+      <span class="logo-name">He-Brews<small>COFFEE · LUBBOCK</small></span>
+    </a>
+    <button class="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks" onclick="toggleMenu(this)">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">Our Story</a></li>
+      <li><a href="#more">Gift Cards & More</a></li>
+      <li><a href="#visit">Visit Us</a></li>
+      <li><a class="order" href="https://www.hebrewscoffeelbk.com/s/order">Order Online →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="verse">"Now faith is the substance of things hoped for, the evidence of things not seen."</p>
+    <h1>Great coffee.<br><span>Greater purpose.</span></h1>
+    <p>Christian-owned, Hispanic-owned, and proudly student-run. Craft coffee and a place to grow — in the heart of Lubbock since 2018.</p>
+    <div class="btn-row">
+      <a class="btn btn-gold" href="https://www.hebrewscoffeelbk.com/s/order">Order Now</a>
+      <a class="btn btn-cream" href="#menu">See the Menu</a>
+    </div>
+    <p class="citation">Hebrews 11:1</p>
+  </div>
+</header>
+<div class="awning" aria-hidden="true"></div>
+
+<div class="info-bar">
+  <div class="wrap info-grid">
+    <div><b>Hours</b><span>Open Daily · 8 AM – 6 PM</span></div>
+    <div><b>Location</b><span><a href="https://maps.google.com/?q=2700+Marshall+St,+Lubbock,+TX+79415">2700 Marshall St, Lubbock, TX</a></span></div>
+    <div><b>Call Us</b><span><a href="tel:+18067120468">(806) 712-0468</a></span></div>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ================= SEASONAL ================= -->
+<section style="padding:64px 0 0">
+  <div class="wrap">
+    <div class="seasonal reveal">
+      <span class="ic" aria-hidden="true">🍋</span>
+      <div>
+        <h3>The lemonade of the summer is here</h3>
+        <p>Our new <strong>Coastal Lemonade</strong> with blueberry &amp; coconut — available all month long.</p>
+      </div>
+      <a class="btn btn-gold" href="https://www.hebrewscoffeelbk.com/s/order">Try It →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MENU ================= -->
+<section class="menu-section" id="menu" style="margin-top:64px">
+  <div class="wrap center">
+    <div class="kicker reveal">The Menu</div>
+    <h2 class="reveal">Crafted with care, served with joy.</h2>
+    <p class="sub reveal">From classic drip to our Brew Crew originals — there's a cup here with your name on it.</p>
+
+    <div class="menu-tabs" role="tablist" aria-label="Menu categories">
+      <button class="menu-tab" role="tab" aria-selected="true" aria-controls="panel-classics" id="tab-classics" onclick="showTab('classics')">Classics &amp; Extras</button>
+      <button class="menu-tab" role="tab" aria-selected="false" aria-controls="panel-specials" id="tab-specials" onclick="showTab('specials')">Brew Crew Specials</button>
+      <button class="menu-tab" role="tab" aria-selected="false" aria-controls="panel-food" id="tab-food" onclick="showTab('food')">Food</button>
+    </div>
+
+    <div class="menu-panel active" id="panel-classics" role="tabpanel" aria-labelledby="tab-classics">
+      <div class="menu-cols" style="text-align:left">
+        <div>
+          <div class="mi"><span class="n">Drip Coffee<small>Snickeroo · Governors · Mexican Chiapas · Sumatra</small></span><span class="p">$3.75</span></div>
+          <div class="mi"><span class="n">Shaken Espresso / Cold Brew</span><span class="p">$4.75</span></div>
+          <div class="mi"><span class="n">Cappuccino / Cortado</span><span class="p">$4.25</span></div>
+          <div class="mi"><span class="n">Americano</span><span class="p">$3.75</span></div>
+          <div class="mi"><span class="n">Cubano</span><span class="p">$4.50</span></div>
+          <div class="mi"><span class="n">Latte / Macchiato</span><span class="p">$5.00</span></div>
+          <div class="mi"><span class="n">Mocha</span><span class="p">$5.75</span></div>
+          <div class="mi"><span class="n">Caramel Frappe</span><span class="p">$5.75</span></div>
+          <div class="mi"><span class="n">Hot Cocoa</span><span class="p">$4.50</span></div>
+        </div>
+        <div>
+          <div class="mi"><span class="n">Hot Teas<small>Chamomile · Earl Grey · Cinnamon Spice · English Breakfast · Mint</small></span><span class="p">$3.75</span></div>
+          <div class="mi"><span class="n">London Fog</span><span class="p">$5.00</span></div>
+          <div class="mi"><span class="n">Chai / Dirty Chai</span><span class="p">$5.25+</span></div>
+          <div class="mi"><span class="n">Matcha</span><span class="p">$5.50</span></div>
+          <div class="mi"><span class="n">Iced Tea<small>Black or mango · sweet/unsweet</small></span><span class="p">$3.25</span></div>
+          <div class="mi"><span class="n">Lemonade</span><span class="p">$3.25</span></div>
+          <div class="mi"><span class="n">Blue Lotus Energy</span><span class="p">$3.75</span></div>
+          <div class="mi"><span class="n">Italian Cream Soda</span><span class="p">$3.75</span></div>
+          <div class="mi"><span class="n">Alt Milks<small>Almond · Coconut +$0.50 · Oat +$0.75 · Cold foam +$0.50</small></span><span class="p">+$0.50</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-panel" id="panel-specials" role="tabpanel" aria-labelledby="tab-specials">
+      <div class="menu-cols" style="text-align:left">
+        <div>
+          <div class="mi"><span class="n">He-Brews Signature<small>Brown sugar cinnamon latte</small></span><span class="p">$5.75</span></div>
+          <div class="mi"><span class="n">Dulce De Leche<small>Caramel &amp; sweet cream breve latte</small></span><span class="p">$5.75</span></div>
+          <div class="mi"><span class="n">Icy Blonde<small>Caramel &amp; white mocha shaken espresso</small></span><span class="p">$5.50</span></div>
+          <div class="mi"><span class="n">Skyline<small>Strawberry &amp; coconut blue lotus energy with coconut milk</small></span><span class="p">$5.25</span></div>
+          <div class="mi"><span class="n">Sunshine Berry<small>Raspberry matcha with coconut cold foam</small></span><span class="p">$6.00</span></div>
+        </div>
+        <div>
+          <div class="mi"><span class="n">The Cowboy<small>Coconut &amp; caramel cold brew with caramel cold foam</small></span><span class="p">$5.75</span></div>
+          <div class="mi"><span class="n">Lavender Haze<small>Lavender &amp; honey macchiato</small></span><span class="p">$5.75</span></div>
+          <div class="mi"><span class="n">Dusty Rose<small>Strawberry dirty chai with strawberry cold foam</small></span><span class="p">$6.00</span></div>
+          <div class="mi"><span class="n">The Yellowstone<small>Signature shaken espresso with oat milk</small></span><span class="p">$5.75</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-panel" id="panel-food" role="tabpanel" aria-labelledby="tab-food">
+      <div class="menu-cols" style="text-align:left">
+        <div>
+          <div class="mi"><span class="n">Bagels<small>Plain · Cinnamon · Everything · Blueberry · GF Plain</small></span><span class="p">$4.25</span></div>
+          <div class="mi"><span class="n">Breakfast Sandwich<small>Ham, egg, chipotle aioli &amp; cheese grilled on ciabatta</small></span><span class="p">$6.50</span></div>
+          <div class="mi"><span class="n">Chicken Panini<small>Chicken, pesto, tomato &amp; provolone grilled on sourdough</small></span><span class="p">$6.75</span></div>
+        </div>
+        <div>
+          <div class="mi"><span class="n">Grilled Cheese<small>Colby Jack &amp; provolone on sourdough · add ham +$1.50</small></span><span class="p">$5.75</span></div>
+          <div class="mi"><span class="n">Avocado Toast<small>Sourdough with tomato &amp; Mike's Hot Honey · add egg +$1</small></span><span class="p">$6.00</span></div>
+          <div class="mi"><span class="n">Chicken Salad Sandwich</span><span class="p">—</span></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="menu-note">Prices and availability may change seasonally — see the full live menu when you order.</p>
+    <div class="menu-cta">
+      <a class="btn btn-gold" href="https://www.hebrewscoffeelbk.com/s/order">Order Online →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about reveal">
+      <div class="kicker">Our Story</div>
+      <h2>Faith, culture &amp; connection — brewed since 2018.</h2>
+      <p>He-Brews opened its doors with a simple vision: create a space in Lubbock where the community can enjoy great coffee and experience God's love.</p>
+      <p>We're <strong>Christian-owned, Hispanic-owned, and proudly student-run</strong> — a safe, comfortable place to study, read, grow relationships, or simply enjoy quiet time with a cup of excellent craft coffee.</p>
+      <div class="radio">
+        <span class="ic" aria-hidden="true">📻</span>
+        <div>
+          <h3>Walk by Faith Radio — live from inside the café</h3>
+          <p>Lubbock's only local contemporary Christian station broadcasts right here on <b>98.7 FM &amp; 1420 AM</b> (and worldwide at 987radio.com). You might catch the hosts on-air while you sip.</p>
+        </div>
+      </div>
+    </div>
+    <div class="mission reveal">
+      <div class="m-title">Our Mission</div>
+      <blockquote>"To Inspire Growth."</blockquote>
+      <p>We live it every day — growing in our craft, our business, and ourselves, and making room for our customers to grow too.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OFFERINGS ================= -->
+<section class="menu-section" id="more">
+  <div class="wrap center">
+    <div class="kicker reveal">More Than Coffee</div>
+    <h2 class="reveal">Gifts, gatherings &amp; gear.</h2>
+    <p class="sub reveal">A few more ways to enjoy He-Brews — in the shop or from anywhere.</p>
+
+    <div class="offer-cards" style="text-align:left">
+      <a class="ocard reveal" href="https://www.hebrewscoffeelbk.com/s/gift-cards">
+        <span class="ic" aria-hidden="true">🎁</span>
+        <h3>Send a Gift Card</h3>
+        <p>Buy online and send it by email to anyone, anywhere — coffee is always the right gift.</p>
+        <span class="go">Buy a gift card →</span>
+      </a>
+      <a class="ocard reveal" href="https://www.hebrewscoffeelbk.com/rent-our-space">
+        <span class="ic" aria-hidden="true">🏠</span>
+        <h3>Rent Our Space</h3>
+        <p>Love our space? Let us host your next event — showers, studies, meetings, and more.</p>
+        <span class="go">Ask about the venue →</span>
+      </a>
+      <a class="ocard reveal" href="https://www.hebrewscoffeelbk.com/s/order">
+        <span class="ic" aria-hidden="true">🧢</span>
+        <h3>Seasonal Merch</h3>
+        <p>Represent your favorite coffee shop in style. Our merchandise changes with the seasons — come see what's new.</p>
+        <span class="go">Visit the shop →</span>
+      </a>
+      <a class="ocard reveal" href="https://www.hebrewscoffeelbk.com/join-our-crew">
+        <span class="ic" aria-hidden="true">☕</span>
+        <h3>Join Our Crew</h3>
+        <p>Student-run and growing. If you want to pour great coffee with greater purpose, we'd love to meet you.</p>
+        <span class="go">Apply today →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DOG ================= -->
+<section class="dog">
+  <div class="wrap dog-grid">
+    <div class="reveal">
+      <div class="kicker">Bring Your Best Friend</div>
+      <h2 style="color:#fff">Dog-friendly porches, pup cups included.</h2>
+      <p>Our indoor spaces are dog-free, but we have <b>two beautiful covered porches</b> for you and your four-legged friend to enjoy.</p>
+      <p>We're happy to serve pups at the service window on our back porch — and we'll even throw in a <b>free pup cup</b> or a treat from Bandana &amp; Boujee.</p>
+    </div>
+    <div class="pup reveal">
+      <div class="big" aria-hidden="true">🐶</div>
+      <h3>The Pup Cup Promise</h3>
+      <p>Every good dog gets a treat. (And they're all good dogs.)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VISIT ================= -->
+<section id="visit">
+  <div class="wrap">
+    <div class="kicker center reveal">Visit Us</div>
+    <h2 class="center reveal" style="margin-bottom:44px">Come grow with us.</h2>
+    <div class="visit-grid">
+      <div class="vcard reveal">
+        <h3>Find Us</h3>
+        <div class="vrow"><span class="ic" aria-hidden="true">📍</span><span><a href="https://maps.google.com/?q=2700+Marshall+St,+Lubbock,+TX+79415">2700 Marshall St, Lubbock, TX 79415</a><br><span style="color:var(--text);font-size:13.5px">Home of Walk by Faith Radio</span></span></div>
+        <div class="vrow"><span class="ic" aria-hidden="true">📞</span><span><a href="tel:+18067120468">(806) 712-0468</a></span></div>
+        <div class="vrow"><span class="ic" aria-hidden="true">📷</span><span><a href="https://www.hebrewscoffeelbk.com/s/instagram">Follow us on Instagram</a></span></div>
+        <div class="vrow"><span class="ic" aria-hidden="true">🛒</span><span><a href="https://www.hebrewscoffeelbk.com/s/order">Order ahead online</a></span></div>
+      </div>
+      <div class="vcard reveal">
+        <h3>Hours <span class="open-now" id="openBadge" hidden>Open Now</span></h3>
+        <div class="hours-row"><span>Monday – Friday</span><b>8:00 AM – 6:00 PM</b></div>
+        <div class="hours-row"><span>Saturday</span><b>8:00 AM – 6:00 PM</b></div>
+        <div class="hours-row"><span>Sunday</span><b>8:00 AM – 6:00 PM</b></div>
+        <p style="margin-top:18px;font-size:13.5px;color:var(--text)">Dog-friendly service window on the back porch during all open hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL ================= -->
+<section class="final">
+  <div class="wrap reveal">
+    <h2>Your table's waiting.</h2>
+    <p>Order ahead and skip the line, or come stay a while — either way, we're glad you're here.</p>
+    <div class="btn-row">
+      <a class="btn btn-gold" href="https://www.hebrewscoffeelbk.com/s/order">Order Online</a>
+      <a class="btn btn-cream" href="https://maps.google.com/?q=2700+Marshall+St,+Lubbock,+TX+79415">Get Directions</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="awning brown" aria-hidden="true"></div>
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="yr"></span> He-Brews Coffee · Lubbock, TX<br><span class="verse-sm">"Walk by faith, not by sight."</span></span>
+    <span>
+      <a href="https://www.hebrewscoffeelbk.com/s/order">Order</a>
+      <a href="https://www.hebrewscoffeelbk.com/s/gift-cards">Gift Cards</a>
+      <a href="https://www.hebrewscoffeelbk.com/join-our-crew">Careers</a>
+      <a href="https://www.hebrewscoffeelbk.com/s/instagram">Instagram</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  function toggleMenu(btn) {
+    const links = document.getElementById('navLinks');
+    const open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+  document.querySelectorAll('.nav-links a').forEach(a =>
+    a.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+      document.querySelector('.menu-btn').setAttribute('aria-expanded', 'false');
+    }));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.getElementById('navLinks').classList.remove('open');
+      document.querySelector('.menu-btn').setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // menu tabs
+  function showTab(name) {
+    document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.menu-tab').forEach(t => t.setAttribute('aria-selected', 'false'));
+    document.getElementById('panel-' + name).classList.add('active');
+    document.getElementById('tab-' + name).setAttribute('aria-selected', 'true');
+  }
+
+  // "Open Now" badge (8am–6pm daily, America/Chicago)
+  try {
+    const h = parseInt(new Intl.DateTimeFormat('en-US', { hour: 'numeric', hour12: false, timeZone: 'America/Chicago' }).format(new Date()), 10);
+    if (h >= 8 && h < 18) document.getElementById('openBadge').hidden = false;
+  } catch (e) {}
+
+  // reveal on scroll
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

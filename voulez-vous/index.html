@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salon Voulez-Vous — Luxury Hair Salon · Lubbock, TX</title>
+<meta name="description" content="Salon Voulez-Vous — luxury hair artistry by Rodney Rodriguez in Lubbock, Texas. Cuts, color, balayage, and bespoke styling. By appointment: (806) 792-2269.">
+<meta property="og:title" content="Salon Voulez-Vous — Luxury Hair Salon, Lubbock">
+<meta property="og:description" content="Hair artistry by Rodney Rodriguez. By appointment only · (806) 792-2269.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --noir:#101012;
+    --noir-2:#17171a;
+    --noir-3:#1f1f24;
+    --ivory:#f6f3ed;
+    --ivory-2:#efeae0;
+    --champagne:#cfa86a;
+    --champagne-lt:#e3c896;
+    --rose:#b98a7e;
+    --ink:#1c1b18;
+    --text:#5c574d;
+    --text-dk:#a39d90;
+    --line:#e3ddd0;
+    --line-dk:#2b2b31;
+    --serif:'Didot','Bodoni MT','Playfair Display',Georgia,'Times New Roman',serif;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:90px}
+  body{font-family:var(--sans);background:var(--ivory);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--champagne);color:var(--noir)}
+  .skip-link{position:absolute;left:-9999px;top:0;z-index:300;background:var(--champagne);color:var(--noir);padding:10px 18px;font-weight:700;text-decoration:none;border-radius:0 0 10px 0}
+  .skip-link:focus{left:0}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--champagne);outline-offset:4px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+
+  .rule{display:flex;align-items:center;gap:16px;justify-content:center;margin-bottom:22px}
+  .rule::before,.rule::after{content:'';height:1px;width:54px;background:var(--champagne)}
+  .rule span{font-size:11.5px;letter-spacing:4.5px;text-transform:uppercase;color:var(--champagne);font-weight:600}
+  .rule.left{justify-content:flex-start}
+  .rule.left::after{display:none}
+
+  /* ---------- NAV ---------- */
+  nav{position:fixed;inset:0 0 auto;z-index:100;background:rgba(16,16,18,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(207,168,106,.22)}
+  .nav-inner{max-width:1080px;margin:0 auto;padding:0 28px;height:76px;display:flex;align-items:center;justify-content:space-between}
+  .logo{text-decoration:none;text-align:left;line-height:1}
+  .logo b{display:block;font-family:var(--serif);font-size:21px;font-weight:500;color:var(--ivory);letter-spacing:3.5px;text-transform:uppercase}
+  .logo small{display:block;font-size:9.5px;letter-spacing:5px;color:var(--champagne);margin-top:5px;text-transform:uppercase}
+  .nav-links{display:flex;align-items:center;gap:4px;list-style:none}
+  .nav-links a{color:#cfc9bd;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:1.8px;text-transform:uppercase;padding:9px 14px;transition:.25s}
+  .nav-links a:hover{color:var(--champagne-lt)}
+  .nav-links .book{border:1px solid var(--champagne);color:var(--champagne);margin-left:10px}
+  .nav-links .book:hover{background:var(--champagne);color:var(--noir)}
+  .menu-btn{display:none;background:none;border:1px solid var(--line-dk);color:var(--ivory);font-size:20px;padding:4px 12px;cursor:pointer}
+  @media(max-width:880px){
+    .menu-btn{display:block}
+    .nav-links{display:none;position:absolute;top:76px;left:0;right:0;background:var(--noir);flex-direction:column;align-items:stretch;padding:18px;border-bottom:1px solid rgba(207,168,106,.25)}
+    .nav-links.open{display:flex}
+    .nav-links a{padding:14px 16px;text-align:center}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:
+    radial-gradient(ellipse 70% 55% at 50% 30%,rgba(207,168,106,.13),transparent),
+    linear-gradient(180deg,var(--noir) 0%,var(--noir-2) 100%);color:var(--ivory);padding:140px 0 100px;position:relative}
+  .hero::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:1px;height:70px;background:linear-gradient(180deg,var(--champagne),transparent)}
+  .hero .mono{font-size:12px;letter-spacing:6px;text-transform:uppercase;color:var(--champagne);margin-bottom:28px;font-weight:600}
+  .hero h1{font-family:var(--serif);font-size:clamp(52px,10vw,108px);font-weight:400;line-height:1.02;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+  .hero h1 .amp{display:block;font-style:italic;text-transform:none;font-size:clamp(26px,4vw,44px);color:var(--champagne);letter-spacing:6px;margin:8px 0}
+  .hero .tag{font-family:var(--serif);font-style:italic;font-size:clamp(17px,2.4vw,22px);color:#bdb5a6;margin:26px auto 40px;max-width:520px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 38px;font-size:13px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;transition:.3s;border:1px solid transparent}
+  .btn-fill{background:var(--champagne);color:var(--noir)}
+  .btn-fill:hover{background:var(--champagne-lt);letter-spacing:3.5px}
+  .btn-ghost{border-color:rgba(246,243,237,.35);color:var(--ivory)}
+  .btn-ghost:hover{border-color:var(--champagne);color:var(--champagne);letter-spacing:3.5px}
+  .btn-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .hero .stars{margin-top:46px;font-size:13px;color:#9b9486;letter-spacing:1px}
+  .hero .stars b{color:var(--champagne);letter-spacing:3px}
+
+  /* ---------- INTRO ---------- */
+  section{padding:110px 0}
+  h2{font-family:var(--serif);font-size:clamp(30px,4.5vw,46px);font-weight:400;letter-spacing:.5px;line-height:1.15;margin-bottom:20px}
+  h2 em{font-style:italic;color:var(--champagne)}
+  .sub{color:var(--text);font-size:16.5px;max-width:580px}
+
+  .intro{text-align:center}
+  .intro .sub{margin:0 auto}
+  .intro-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:760px;margin:64px auto 0;background:var(--line)}
+  @media(max-width:640px){.intro-stats{grid-template-columns:1fr}}
+  .istat{background:var(--ivory);padding:34px 20px}
+  .istat b{display:block;font-family:var(--serif);font-size:34px;color:var(--ink);margin-bottom:4px}
+  .istat span{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--text)}
+
+  /* ---------- SERVICES ---------- */
+  .services{background:var(--noir);color:var(--ivory)}
+  .services h2{color:var(--ivory)}
+  .services .sub{color:var(--text-dk)}
+  .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 70px;margin-top:60px}
+  @media(max-width:820px){.svc-grid{grid-template-columns:1fr}}
+  .svc-cat{font-family:var(--serif);font-style:italic;font-size:21px;color:var(--champagne);margin:34px 0 8px;grid-column:1/-1}
+  .svc-cat:first-child{margin-top:0}
+  .svc{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:17px 0;border-bottom:1px solid var(--line-dk)}
+  .svc .n{font-size:15.5px;font-weight:500;letter-spacing:.3px}
+  .svc .n small{display:block;font-weight:400;color:var(--text-dk);font-size:13px;margin-top:3px;letter-spacing:0}
+  .svc .dots{flex:1;border-bottom:1px dotted #3a3a42;transform:translateY(-4px)}
+  .svc .p{font-family:var(--serif);font-size:16px;color:var(--champagne-lt);white-space:nowrap}
+  .svc-note{margin-top:44px;text-align:center;color:var(--text-dk);font-size:13.5px;font-style:italic}
+  .svc-cta{text-align:center;margin-top:36px}
+
+  /* ---------- RODNEY ---------- */
+  .artist-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+  @media(max-width:820px){.artist-grid{grid-template-columns:1fr;gap:44px}}
+  .portrait{aspect-ratio:3/4;background:linear-gradient(160deg,var(--noir-2),var(--noir-3));position:relative;display:grid;place-items:center;border:1px solid var(--line)}
+  .portrait::before{content:'';position:absolute;inset:14px;border:1px solid rgba(207,168,106,.45);pointer-events:none}
+  .portrait .ph{text-align:center;color:#6e6960;padding:30px}
+  .portrait .ph .init{font-family:var(--serif);font-size:84px;color:var(--champagne);line-height:1;display:block;margin-bottom:14px}
+  .portrait .ph small{font-size:11px;letter-spacing:3px;text-transform:uppercase}
+  .artist p{color:var(--text);font-size:16.5px;margin-bottom:16px}
+  .artist p strong{color:var(--ink)}
+  .artist blockquote{font-family:var(--serif);font-style:italic;font-size:22px;line-height:1.5;color:var(--ink);border-left:2px solid var(--champagne);padding-left:24px;margin:28px 0}
+  .sig{font-family:var(--serif);font-style:italic;font-size:26px;color:var(--champagne);margin-top:8px}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .praise{background:var(--ivory-2)}
+  .praise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:60px}
+  @media(max-width:880px){.praise-grid{grid-template-columns:1fr}}
+  .quote{background:var(--ivory);border:1px solid var(--line);padding:38px 32px;position:relative}
+  .quote::before{content:'❝';font-family:var(--serif);font-size:54px;color:var(--champagne);line-height:1;display:block;margin-bottom:14px}
+  .quote p{font-size:15.3px;color:var(--text);font-style:italic;margin-bottom:20px}
+  .quote b{font-size:12.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink)}
+  .quote .st{color:var(--champagne);letter-spacing:3px;font-size:13px;display:block;margin-top:6px}
+
+  /* ---------- VISIT ---------- */
+  .visit{background:var(--noir);color:var(--ivory)}
+  .visit h2{color:var(--ivory)}
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+  @media(max-width:820px){.visit-grid{grid-template-columns:1fr}}
+  .vline{display:flex;gap:18px;padding:19px 0;border-bottom:1px solid var(--line-dk);font-size:15.5px;align-items:baseline}
+  .vline:last-of-type{border-bottom:none}
+  .vline .lbl{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--champagne);min-width:110px;font-weight:600}
+  .vline a{color:var(--ivory);text-decoration:none;border-bottom:1px solid rgba(207,168,106,.4);transition:.2s}
+  .vline a:hover{color:var(--champagne-lt);border-color:var(--champagne)}
+  .appoint{background:var(--noir-3);border:1px solid rgba(207,168,106,.3);padding:48px 42px;text-align:center}
+  .appoint .rule{margin-bottom:18px}
+  .appoint h3{font-family:var(--serif);font-size:30px;font-weight:400;margin-bottom:12px}
+  .appoint p{color:var(--text-dk);font-size:15px;margin-bottom:30px}
+  .appoint .tel{display:block;font-family:var(--serif);font-size:34px;color:var(--champagne);text-decoration:none;margin-bottom:26px;letter-spacing:1px}
+  .appoint .tel:hover{color:var(--champagne-lt)}
+
+  footer{background:var(--noir);border-top:1px solid var(--line-dk);padding:42px 0;text-align:center;color:#7c766b;font-size:13px}
+  footer .fl{font-family:var(--serif);letter-spacing:4px;text-transform:uppercase;color:var(--ivory);font-size:16px;margin-bottom:8px}
+  footer .fl span{color:var(--champagne)}
+  footer a{color:var(--champagne);text-decoration:none}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="logo" href="#top" aria-label="Salon Voulez-Vous home">
+      <b>Voulez-Vous</b>
+      <small>Salon · Lubbock</small>
+    </a>
+    <button class="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks" onclick="toggleMenu(this)">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#rodney">The Artist</a></li>
+      <li><a href="#praise">Praise</a></li>
+      <li><a href="#visit">Visit</a></li>
+      <li><a class="book" href="tel:+18067922269">Book · (806) 792-2269</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="mono">Est. Lubbock, Texas</p>
+    <h1>Voulez<span class="amp">— vous —</span>Salon</h1>
+    <p class="tag">Hair artistry, elevated. Bespoke cuts, couture color, and a chair that feels like it was made for you.</p>
+    <div class="btn-row">
+      <a class="btn btn-fill" href="tel:+18067922269">Book an Appointment</a>
+      <a class="btn btn-ghost" href="#services">View Services</a>
+    </div>
+    <p class="stars"><b>★★★★★</b> &nbsp;4.9 — loved by Lubbock</p>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= INTRO ================= -->
+<section class="intro">
+  <div class="wrap reveal">
+    <div class="rule"><span>The Salon</span></div>
+    <h2>Where craft meets <em>couture.</em></h2>
+    <p class="sub">Voulez-Vous is an intimate, appointment-only salon — no rush, no assembly line. Every visit begins with a real consultation and ends with hair you can't stop catching in the mirror.</p>
+    <div class="intro-stats">
+      <div class="istat reveal"><b>4.9 ★</b><span>Client rating</span></div>
+      <div class="istat reveal"><b>1-on-1</b><span>Private appointments</span></div>
+      <div class="istat reveal"><b>Bespoke</b><span>Every single service</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="rule left reveal"><span>The Menu</span></div>
+    <h2 class="reveal">Services &amp; <em>artistry.</em></h2>
+    <p class="sub reveal">Every service includes a personal consultation, precision execution, and finishing — because details are the difference.</p>
+
+    <div class="svc-grid">
+      <div class="svc-cat reveal">Cut &amp; Style</div>
+      <div class="svc reveal"><span class="n">Signature Cut &amp; Finish<small>Consultation, precision cut, wash &amp; style</small></span><span class="dots"></span><span class="p">from $55</span></div>
+      <div class="svc reveal"><span class="n">Men's Cut &amp; Groom</span><span class="dots"></span><span class="p">from $35</span></div>
+      <div class="svc reveal"><span class="n">Blowout &amp; Style</span><span class="dots"></span><span class="p">from $45</span></div>
+      <div class="svc reveal"><span class="n">Special Occasion / Updo<small>Weddings, galas, unforgettable nights</small></span><span class="dots"></span><span class="p">from $85</span></div>
+
+      <div class="svc-cat reveal">Color</div>
+      <div class="svc reveal"><span class="n">Single-Process Color</span><span class="dots"></span><span class="p">from $85</span></div>
+      <div class="svc reveal"><span class="n">Balayage / Hand-Painted<small>Dimensional, lived-in color</small></span><span class="dots"></span><span class="p">from $150</span></div>
+      <div class="svc reveal"><span class="n">Full Highlight</span><span class="dots"></span><span class="p">from $130</span></div>
+      <div class="svc reveal"><span class="n">Color Correction<small>By consultation</small></span><span class="dots"></span><span class="p">quoted</span></div>
+
+      <div class="svc-cat reveal">Treatments &amp; Texture</div>
+      <div class="svc reveal"><span class="n">Deep Conditioning Ritual</span><span class="dots"></span><span class="p">from $35</span></div>
+      <div class="svc reveal"><span class="n">Keratin Smoothing</span><span class="dots"></span><span class="p">from $200</span></div>
+
+      <div class="svc-cat reveal">Brows</div>
+      <div class="svc reveal"><span class="n">Eyebrow Threading &amp; Shaping</span><span class="dots"></span><span class="p">from $18</span></div>
+      <div class="svc reveal"><span class="n">Brow Tint</span><span class="dots"></span><span class="p">from $25</span></div>
+    </div>
+
+    <p class="svc-note">Pricing varies with length, density, and service time — your exact quote is confirmed at consultation.</p>
+    <div class="svc-cta">
+      <a class="btn btn-fill" href="tel:+18067922269">Reserve Your Chair</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RODNEY ================= -->
+<section id="rodney">
+  <div class="wrap artist-grid">
+    <div class="portrait reveal" role="img" aria-label="Portrait placeholder for Rodney Rodriguez">
+      <div class="ph">
+        <span class="init">R</span>
+        <small>Rodney Rodriguez<br>— replace with portrait —</small>
+      </div>
+    </div>
+    <div class="artist reveal">
+      <div class="rule left"><span>The Artist</span></div>
+      <h2>Rodney <em>Rodriguez.</em></h2>
+      <p>Behind every chair at Voulez-Vous is a simple belief: <strong>great hair is personal.</strong> Rodney has spent his career perfecting the craft — listening first, then shaping cut and color around the way you actually live, not just the way you sit in the chair.</p>
+      <blockquote>"You shouldn't have to explain yourself twice to your stylist. My job is to see what you see — then take it further than you imagined."</blockquote>
+      <p>Clients don't come to Voulez-Vous for a haircut. They come back, year after year, for the only stylist who gets it right.</p>
+      <p class="sig">— Rodney</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRAISE ================= -->
+<section class="praise" id="praise">
+  <div class="wrap">
+    <div class="rule reveal"><span>Kind Words</span></div>
+    <h2 class="reveal" style="text-align:center">Loved by <em>Lubbock.</em></h2>
+    <div class="praise-grid">
+      <div class="quote reveal">
+        <p>Rodney is the best. I won't let anyone else touch my hair — he listens, and the result is always better than what I pictured.</p>
+        <b>— Voulez-Vous Client</b>
+        <span class="st" aria-label="5 stars">★★★★★</span>
+      </div>
+      <div class="quote reveal">
+        <p>An intimate salon where you're never rushed. The attention to detail is something you simply don't find anymore.</p>
+        <b>— Voulez-Vous Client</b>
+        <span class="st" aria-label="5 stars">★★★★★</span>
+      </div>
+      <div class="quote reveal">
+        <p>4.9 stars says it all. From the consultation to the finish, every appointment feels like it was designed just for you.</p>
+        <b>— Voulez-Vous Client</b>
+        <span class="st" aria-label="5 stars">★★★★★</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VISIT ================= -->
+<section class="visit" id="visit">
+  <div class="wrap visit-grid">
+    <div class="reveal">
+      <div class="rule left"><span>Visit</span></div>
+      <h2>Your chair is <em>waiting.</em></h2>
+      <div style="margin-top:34px">
+        <div class="vline"><span class="lbl">Salon</span><span>Salon Voulez-Vous</span></div>
+        <div class="vline"><span class="lbl">Address</span><span><a href="https://maps.google.com/?q=5116+58th+St+Ste+F,+Lubbock,+TX+79414">5116 58th St, Suite F · Lubbock, TX 79414</a></span></div>
+        <div class="vline"><span class="lbl">Telephone</span><span><a href="tel:+18067922269">(806) 792-2269</a></span></div>
+        <div class="vline"><span class="lbl">Hours</span><span>By appointment only</span></div>
+      </div>
+    </div>
+    <div class="appoint reveal">
+      <div class="rule"><span>Reservations</span></div>
+      <h3>By appointment only</h3>
+      <p>Voulez-Vous keeps a private book — one client, one chair, undivided attention. Call or text to reserve.</p>
+      <a class="tel" href="tel:+18067922269">(806) 792-2269</a>
+      <a class="btn btn-fill" href="tel:+18067922269">Call to Book</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fl">Voulez<span> — </span>Vous</div>
+    <p>© <span id="yr"></span> Salon Voulez-Vous · 5116 58th St Ste F, Lubbock, TX · <a href="tel:+18067922269">(806) 792-2269</a></p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  function toggleMenu(btn) {
+    const links = document.getElementById('navLinks');
+    const open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+  document.querySelectorAll('.nav-links a').forEach(a =>
+    a.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+      document.querySelector('.menu-btn').setAttribute('aria-expanded', 'false');
+    }));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.getElementById('navLinks').classList.remove('open');
+      document.querySelector('.menu-btn').setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
